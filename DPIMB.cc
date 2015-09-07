@@ -17,7 +17,7 @@ void
 DPIMB::drop_it(Packet *p)
 {
   if (_drops == 0)
-    click_chatter("DropBroadcasts: dropped a packet");
+    click_chatter("DPIMB: dropped a packet");
   _drops++;
   if (noutputs() == 2)
     output(1).push(p);
@@ -36,18 +36,18 @@ DPIMB::simple_action(Packet *p)
 }
 
 static String
-dropbroadcasts_read_drops(Element *f, void *)
+DPIMB_read_drops(Element *f, void *)
 {
-  DropBroadcasts *q = (DropBroadcasts *)f;
+  DPIMB *q = (DPIMB *)f;
   return String(q->drops());
 }
 
 void
-DropBroadcasts::add_handlers()
+DPIMB::add_handlers()
 {
-  add_read_handler("drops", dropbroadcasts_read_drops, 0);
+  add_read_handler("drops", DPIMB_read_drops, 0);
 }
 
 CLICK_ENDDECLS
-EXPORT_ELEMENT(DropBroadcasts)
-ELEMENT_MT_SAFE(DropBroadcasts)
+EXPORT_ELEMENT(DPIMB)
+ELEMENT_MT_SAFE(DPIMB)
