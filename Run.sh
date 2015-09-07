@@ -4,6 +4,6 @@ elementclass MyUDPChecker{ input->CheckIPHeader() -> IPClassifier(udp,-) -> Chec
 dpimb :: DPIMB {input -> output}
 
 
-FromDevice(MyUDPChecker, ENCAP IP);
-udp[0] -> dpimb;
-ToDevice(DPIMB, ENCAP IP);
+FromDevice("eth0") -> MyUDPChecker;
+MyUDPChecker[0] -> dpimb;
+dpimb[0] -> ToDevice("eth0");
