@@ -25,14 +25,13 @@ class DPIMB : public Element {
   const char *class_name() const	{ return "DPIMB"; }
   const char *port_count() const	{ return PORTS_1_1; }
   const char *processing() const	{ return PROCESSING_A_AH; }
-  void add_handlers() CLICK_COLD;
-
-  int Element::configure	(Vector< String > & conf, ErrorHandler * errh)	
-
-  uint32_t drops() const		{ return _drops; }
+  int DPIMB::configure(Vector< String > & conf, ErrorHandler * errh)	
+  void DPIMB::add_handlers()
 
   void drop_it(Packet *);
   Packet *simple_action(Packet *);
+  uint32_t drops() const		{ return _drops; }
+
 
 private:
   atomic_uint32_t _drops;
