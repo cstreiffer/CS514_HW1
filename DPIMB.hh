@@ -25,9 +25,9 @@ class DPIMB : public Element {
   const char *class_name() const	{ return "DPIMB"; }
   const char *port_count() const	{ return PORTS_1_1; }
   const char *processing() const	{ return PROCESSING_A_AH; }
-  int Element::configure(Vector< String > & conf, ErrorHandler * errh)	
   void add_handlers() CLICK_COLD;
 
+  int Element::configure	(Vector< String > & conf, ErrorHandler * errh)	
 
   uint32_t drops() const		{ return _drops; }
 
