@@ -1,6 +1,5 @@
 #include <click/config.h>
 #include "DPIMB.hh"
-#include <click/glue.hh>
 CLICK_DECLS
 
 DPIMB::DPIMB()
