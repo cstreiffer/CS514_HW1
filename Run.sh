@@ -1,4 +1,4 @@
-udp :: MyUDPChecker{ input->CheckIPHeader() -> IPClassifier(udp,-) -> CheckUDPHeader -> [0]output}
+elementclass MyUDPChecker{ input->CheckIPHeader() -> IPClassifier(udp,-) -> CheckUDPHeader -> [0]output}
 dpimb :: DPIMB {input -> output}
 
 
