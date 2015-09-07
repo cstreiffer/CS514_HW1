@@ -2,7 +2,7 @@
 #define CLICK_DPIMB_HH
 #include <click/element.hh>
 #include <click/list.hh>
-#include <click/string.hh>
+#include <stdio.h>
 
 CLICK_DECLS
 
@@ -25,14 +25,17 @@ public:
   const char *class_name() const	{ return "DPIMB"; }
   const char *port_count() const	{ return PORTS_1_1; }
   const char *processing() const	{ return PUSH }
-  int DPIMB::initialize();	
+  int DPIMB::initialize(ErrorHandler *errh);	
   void DPIMB::add_handlers();
 
-  void drop_it(Packet *);
+  bool check_blacklist(String url);
   Packet *simple_action(Packet *);
 
 private:
-	list<string> dns_list;	
+	String input_file;
+	String output_file;
+	// List/vector of Strings
+	List<String> blacklist;
 };
 
 CLICK_ENDDECLS
