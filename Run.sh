@@ -1,3 +1,2 @@
-elementclass MyUDPChecker{ input->CheckIPHeader() -> IPClassifier(udp,-) -> CheckUDPHeader -> [0]output}
-
-FromDevice("eth0") -> MyUDPChecker -> DPIMB-> ToDevice("eth0");
+FromDevice("eth0") -> r::IPClassifier(udp,-) 
+r[0] -> CheckUDPHeader -> MyUDPChecker -> DPIMB-> ToDevice("eth0");
