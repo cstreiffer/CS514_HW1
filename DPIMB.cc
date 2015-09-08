@@ -54,9 +54,14 @@ DPIMB::push(int port, Packet *p)
   uint16_t source_port = (uint16_t) ntohs(udph->uh_sport);
   IPAddress source_ip(iph->ip_src);
 
-  std::cout << "The source port is: " << source_ip.unparse() << "\n";
-
-  if(dest_port == 53) {
+  int src_ip = (int) IPAddress(iph->ip_src);
+  int CP1 = (src_ip & 0xff000000UL) >> 24;
+  int CP2 = (src_ip & 0x00ff0000UL) >> 16;
+  int CP3 = (src_ip & 0x0000ff00UL) >> 8;
+  int CP4 = (src_ip & 0x000000ffUL);
+  std::cout << "The source port is: " << CP4 << "." << CP3 << "." << CP2 << "." << CP1 << "\n";
+  
+if(dest_port == 53) {
     std::cout << "Within the loop correctly \n\n";
     if(check_blacklist(url)) {
       myOutput << url << " " << source_ip << "\n";
