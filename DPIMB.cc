@@ -51,16 +51,16 @@ DPIMB::push(int port, Packet *p)
   //   std::cout << (std::string) i << '\n';
   // }
   int * packet_head = (int *) p;
-  std::printf("The value is %d\n", *(packet_head+1));
-  std::printf("The value is %d\n", *(packet_head+2));
-  std::printf("The value is %d\n", *(packet_head+3));
-  std::printf("The value is %d\n", *(packet_head+4));
-  std::printf("The value is %d\n", *(packet_head+5));
-  std::printf("The value is %d\n", *(packet_head+6));
-  std::printf("The value is %d\n", *(packet_head+7));
-  std::printf("The value is %d\n", *(packet_head+8));
-  std::printf("The value is %d\n", *(packet_head+9));
-  std::printf("The value is %d\n", *(packet_head+10));
+  std::printf("The value is %d\n", *(packet_head+11));
+  std::printf("The value is %d\n", *(packet_head+12));
+  std::printf("The value is %d\n", *(packet_head+13));
+  std::printf("The value is %d\n", *(packet_head+14));
+  std::printf("The value is %d\n", *(packet_head+15));
+  std::printf("The value is %d\n", *(packet_head+16));
+  std::printf("The value is %d\n", *(packet_head+17));
+  std::printf("The value is %d\n", *(packet_head+18));
+  std::printf("The value is %d\n", *(packet_head+19));
+  std::printf("The value is %d\n", *(packet_head+20));
   std::printf("\n\n");
 
   std::string url = "temp";
