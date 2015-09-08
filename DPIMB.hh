@@ -4,19 +4,6 @@
 #include <iostream>
 CLICK_DECLS
 
-/*
- * =c
- * DropBroadcasts
- * =s annotations
- * drops link-level broadcast and multicast packets
- * =d
- * Drop packets that arrived as link-level broadcast or multicast.
- * Used to implement the requirement that IP routers not forward
- * link-level broadcasts.
- * Looks at the packet_type_anno annotation, which FromDevice sets.
- * =a FromDevice
- */
-
 class DPIMB : public Element {
 public:
 
@@ -31,9 +18,6 @@ public:
 private:
 	String input_file;
 	String output_file;
-
-	// List/vector of Strings
-	//List<String> blacklist;
   int packet_counter;
 };
 
