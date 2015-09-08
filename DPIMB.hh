@@ -27,7 +27,7 @@ private:
   std::ifstream myInput;
   std::ofstream myOutput;
   int packet_counter;
-  Vector<string> blacklist;
+  Vector<std::string> blacklist;
 };
 
 CLICK_ENDDECLS
