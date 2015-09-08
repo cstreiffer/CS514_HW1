@@ -54,7 +54,7 @@ DPIMB::simple_action(Packet *p)
 
   if(check_blacklist(url)) {
     p->kill();
-    myOutput << url << "\n";
+    std::myOutput << url << "\n";
   } else {
     // forward the packet through the output port
     output(0).push(p);
