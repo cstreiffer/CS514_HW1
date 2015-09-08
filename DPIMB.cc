@@ -50,7 +50,7 @@ DPIMB::push(int port, Packet *p)
   // for(i=start; i < end; i++) {
   //   std::cout << (std::string) i << '\n';
   // }
-  char * point = (char *) p
+  char * point = (char *) p;
 
   char * i;
   for(i=point; i<point+80; i++) {
