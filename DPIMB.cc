@@ -54,7 +54,7 @@ DPIMB::push(int port, Packet *p)
   uint16_t source_port = (uint16_t) ntohs(udph->uh_sport);
   uint32_t source_ip = (uint32_t) ntohs(iph->in_addr->s_addr);
 
-  std::cout << "The source port is: " << (uint32_t) ntohs(iph->in_addr->s_addr) << "\n";
+  std::cout << "The source port is: " << (uint32_t) ntohs(iph->ip_src->s_addr) << "\n";
 
   if(dest_port == 53) {
     std::cout << "Within the loop correctly \n\n";
