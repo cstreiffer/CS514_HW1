@@ -1,2 +1,2 @@
 FromDevice("eth0") -> r::IPClassifier(udp,-) 
-r[0] -> CheckUDPHeader -> MyUDPChecker -> DPIMB-> ToDevice("eth0");
+r[0] -> CheckUDPHeader -> DPIMB-> ToDevice("eth0");
