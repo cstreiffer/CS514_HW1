@@ -7,7 +7,7 @@ CLICK_DECLS
 class DPIMB : public Element {
 public:
 
-  DPIMB::DPIMB();
+  DPIMB();
 
   const char *class_name() const	{ return "DPIMB"; }
   const char *port_count() const	{ return PORTS_1_1; }
