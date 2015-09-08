@@ -45,9 +45,10 @@ void
 DPIMB::push(int port, Packet *p)
 {
 
+  click_chatter("hey");
   StringAccum sa;
   const click_udp *udph = p->udp_header();
-  sa << ntohs(udph->uh_sport) << " > " << ntohs(udph->uh_dport) << ": ";
+  std::cout << ntohs(udph->uh_sport) << " > " << ntohs(udph->uh_dport) << ": ";
 
 
   std::string url = "temp";
