@@ -33,6 +33,7 @@ DPIMB::check_blacklist(std::string url)
   for (Vector<std::string>::const_iterator iterator = blacklist.begin(), end = blacklist.end(); iterator != end; ++iterator) {
     std::string black = *iterator;
     click_chatter(black.c_str());
+    click_chatter("her");
     if(black.compare(url)==0){
         return 1;
     }
