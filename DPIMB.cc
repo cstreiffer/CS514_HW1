@@ -43,13 +43,16 @@ void
 DPIMB::push(int port, Packet *p)
 {
   // Extract DNS url from packet and sent to method check_blacklist
-  char * start = (char *) p->data();
-  char * end =  (char *) p->end_data();
+  // char * start = (char *) p->data();
+  // char * end =  (char *) p->end_data();
 
-  char * i;
-  for(i=start; i < end; i++) {
-    std::cout << (std::string) i << '\n';
-  }
+  // char * i;
+  // for(i=start; i < end; i++) {
+  //   std::cout << (std::string) i << '\n';
+  // }
+
+  int * port = (int *) p->udp_header();
+  std::cout << port << '\n';
 
 
   std::string url = "temp";
