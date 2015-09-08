@@ -43,12 +43,8 @@ void
 DPIMB::push(int port, Packet *p)
 {
 
-  char * pointe = (char *) p->transport_header();
-
-  char * i;
-  for(i=pointe; i<pointe+60; i++) {
-    std::printf("The pointer is at: %c\n", *i);
-  }
+  const unsigned char * pointe = p->transport_header();
+  std::printf("This is: %c", *pointe);
 
   std::string url = "temp";
   std::string ip = "temp2";
