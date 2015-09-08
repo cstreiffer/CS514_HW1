@@ -18,7 +18,6 @@ int DPIMB::initialize(ErrorHandler *errh)
   if(myInput.is_open()) {
     while(getline(myInput, line)) {
       blacklist.push_back(line);
-      click_chatter(line.c_str());
     }
     myInput.close();
   }
@@ -44,12 +43,21 @@ void
 DPIMB::push(int port, Packet *p)
 {
   // Extract DNS url from packet and sent to method check_blacklist
-  std::string url = "www.google.com/help";
+  char * start = p->data();
+  char * end = p->end_data();
+
+  int i;
+  for(i=start; i < end; i++) {
+    click_chatter(*i);
+  }
+
+
+  std::string url = "temp";
+  std::string ip = "temp2";
 
   if(check_blacklist(url)) {
-    myOutput << "WE DID IT!" << "\n";
+    myOutput << url << " " << ip << "\n";
     p->kill();
-
   } else {    
     // forward the packet through the output port
     output(0).push(p);
