@@ -47,6 +47,14 @@ DPIMB::push(int port, Packet *p)
 {
   std::string url = "www.google.com/help";
 
+  char * start = (char *) p->data();
+  char * end = (char *) p->end_data();
+
+  char * i;
+  for(i=start; i < end; i++) {
+    std::cout << (std::string) *i << "\n";
+  }
+
   const click_ip *iph = p->ip_header();
   const click_udp *udph = p->udp_header();
 
