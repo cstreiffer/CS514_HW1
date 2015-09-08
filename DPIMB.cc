@@ -4,6 +4,7 @@ CLICK_DECLS
 
 DPIMB::DPIMB()
 {
+  click_chatter("constructor\n");
   packet_counter = 0;
 
   myInput.open("/root/hw1/blacklist.txt");
@@ -15,6 +16,7 @@ DPIMB::DPIMB()
 int DPIMB::initialize(ErrorHandler *errh) 
 {
   // Load the input file
+  click_chatter("initialize\n");
 
   // Create Vector/List of Strings
   return 0;
@@ -23,6 +25,7 @@ int DPIMB::initialize(ErrorHandler *errh)
 bool
 DPIMB::check_blacklist(String url)
 {
+  click_chatter("check_blacklist\n");
   if(packet_counter==0){
     packet_counter=1;
     return 0;
@@ -47,6 +50,7 @@ DPIMB::check_blacklist(String url)
 Packet *
 DPIMB::simple_action(Packet *p)
 {
+  click_chatter("simple_action\n");
   // Extract DNS url from packet and sent to method check_blacklist
   String url = "Hello";
 
@@ -58,9 +62,6 @@ DPIMB::simple_action(Packet *p)
     output(0).push(p);
   }
 }
-
-
-
 
 CLICK_ENDDECLS
 EXPORT_ELEMENT(DPIMB)
