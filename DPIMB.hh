@@ -12,7 +12,7 @@ public:
 
   const char *class_name() const	{ return "DPIMB"; }
   const char *port_count() const	{ return PORTS_1_1; }
-  const char *processing() const	{ return PUSH_TO_PULL; }
+  const char *processing() const	{ return AGNOSTIC; }
   int initialize(ErrorHandler *);	
   bool check_blacklist(String url);
   Packet *simple_action(Packet *);
