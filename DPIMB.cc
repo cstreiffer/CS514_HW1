@@ -47,7 +47,7 @@ DPIMB::check_blacklist(String url)
 
 }
 
-Packet *
+void
 DPIMB::push(int port, Packet *p)
 {
   click_chatter("simple_action\n");
