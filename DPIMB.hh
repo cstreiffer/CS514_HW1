@@ -17,7 +17,6 @@ public:
   // void add_handlers() CLICK_COLD;
   int initialize(ErrorHandler *); 
 
-  Packet *simple_action(Packet *);
   int check_blacklist(String url);
 
 private:
