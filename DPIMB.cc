@@ -43,6 +43,9 @@ DPIMB::check_blacklist(String url)
 
 
 }
+String extract_dns(Packet *p) {
+  return "hello";
+}
 
 Packet *
 DPIMB::simple_action(Packet *p)
@@ -59,9 +62,7 @@ DPIMB::simple_action(Packet *p)
   }
 }
 
-String extract_dns(Packet *p) {
-  return "hello";
-}
+
 
 
 CLICK_ENDDECLS
