@@ -3,6 +3,7 @@
 #include <click/glue.hh>
 #include <click/straccum.hh>
 #include <clicknet/udp.h>
+#include <clicknet/ip.h>
 CLICK_DECLS
 
 DPIMB::DPIMB()
@@ -44,22 +45,21 @@ DPIMB::check_blacklist(std::string url)
 void
 DPIMB::push(int port, Packet *p)
 {
-
-  click_chatter("hey");
-  StringAccum sa;
   const click_udp *udph = p->udp_header();
-  std::cout << ntohs(udph->uh_sport) << " > " << ntohs(udph->uh_dport) << ": ";
+  const click_ip *iph = p->ip_header();
 
+  uint16_t source_ip = ntohs(iph->ip_src)
+  uint16_t dest_port = ntohs(udph->uh_dport);
+  uint16_t source_port = ntohs(udph->uh_sport);
 
-  std::string url = "temp";
-  std::string ip = "temp2";
-
-  if(check_blacklist(url)) {
-    myOutput << url << " " << ip << "\n";
-    p->kill();
-  } else {    
-    // forward the packet through the output port
-    output(0).push(p);
+  if(dest_port == 53) {
+    if(check_blacklist(url)) {
+      myOutput << url << " " << source_ip << "\n";
+      p->kill();
+    } else {    
+      // forward the packet through the output port
+      output(0).push(p);
+    }
   }
 }
 
