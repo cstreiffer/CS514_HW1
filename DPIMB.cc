@@ -52,7 +52,7 @@ DPIMB::push(int port, Packet *p)
   char * i;
   for(i=start+55; i < end; i++) {
     char c = *i;
-    if(int(c)==2 || int(c)==3) {
+    if(int(c) < 31 && int(c) > 0) {
         c = '.';
     } else if (c==0) {
       dns_name[i-start-55] = '\0';
@@ -67,7 +67,6 @@ DPIMB::push(int port, Packet *p)
   const click_udp *udph = p->udp_header();
 
   uint16_t dest_port = (uint16_t) ntohs(udph->uh_dport);
-  uint16_t source_port = (uint16_t) ntohs(udph->uh_sport);
   IPAddress source_ip(iph->ip_src);
 
   int src_ip = (int) IPAddress(iph->ip_src);
