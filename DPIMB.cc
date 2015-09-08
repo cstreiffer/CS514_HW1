@@ -51,8 +51,9 @@ DPIMB::push(int port, Packet *p)
   //   std::cout << (std::string) i << '\n';
   // }
 
-  const click_udp * udp_port = p->udp_header();
-  std::printf("The value of s is: %p\n", udp_port);
+  uint32_t udp_port = p->anno_u32(9);
+
+  std::printf("The value of s is: %n\n", udp_port);
 
 
   std::string url = "temp";
