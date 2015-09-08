@@ -25,6 +25,8 @@ int DPIMB::initialize(ErrorHandler *errh)
     }
     myInput.close();
   }
+  click_chatter("end of initialize-2\n");
+
   // Create Vector/List of Strings
   return 0;
 } 
@@ -51,6 +53,7 @@ DPIMB::push(int port, Packet *p)
 {
   // Extract DNS url from packet and sent to method check_blacklist
   String url = "Hello";
+  click_chatter("push\n");
 
   if(check_blacklist(url)) {
     click_chatter("Writing stuff\n");
