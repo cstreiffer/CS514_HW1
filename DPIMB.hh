@@ -14,7 +14,6 @@ public:
   const char *port_count() const	{ return PORTS_1_1; }
   const char *processing() const	{ return PUSH; }
   int initialize(ErrorHandler *);	
-  String extract_dns(Packet *);
   bool check_blacklist(String url);
   Packet *simple_action(Packet *);
 

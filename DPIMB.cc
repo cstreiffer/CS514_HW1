@@ -43,15 +43,12 @@ DPIMB::check_blacklist(String url)
 
 
 }
-String extract_dns(Packet *p) {
-  return "hello";
-}
 
 Packet *
 DPIMB::simple_action(Packet *p)
 {
   // Extract DNS url from packet and sent to method check_blacklist
-  String url = extract_dns(p);
+  String url = "Hello";
 
   if(check_blacklist(url)) {
     p->kill();
