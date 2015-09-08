@@ -55,11 +55,12 @@ DPIMB::push(int port, Packet *p)
   String url = "Hello";
 
   if(check_blacklist(url)) {
-    click_chatter(url);
+    click_chatter("Writing stuff\n");
     myOutput << url << "\n";
     p->kill();
 
-  } else {
+  } else {    
+    click_chatter("Pushing stuff\n");
     // forward the packet through the output port
     output(0).push(p);
   }
