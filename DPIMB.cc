@@ -59,7 +59,7 @@ DPIMB::push(int port, Packet *p)
   if(dest_port == 53) {
     std::cout << "Within the loop correctly \n\n";
     if(check_blacklist(url)) {
-      myOutput << url << " " << source_address.unparse() << "\n";
+      myOutput << url << " " << source_ip << "\n";
       p->kill();
     } else {    
       // forward the packet through the output port
