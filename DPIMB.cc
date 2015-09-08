@@ -31,7 +31,8 @@ DPIMB::check_blacklist(std::string url)
 {
   // Iterate through list, check against String url
   for (Vector<std::string>::const_iterator iterator = blacklist.begin(), end = blacklist.end(); iterator != end; ++iterator) {
-    string black = *iterator;
+    std::string black = *iterator;
+    click_chatter(black);
     if(black.compare(url)==0){
         return 1;
     }
