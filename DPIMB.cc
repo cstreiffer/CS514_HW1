@@ -35,10 +35,11 @@ DPIMB::check_blacklist(std::string url)
   for (Vector<std::string>::const_iterator iterator = blacklist.begin(), end = blacklist.end(); iterator != end; ++iterator) {
     std::string black = *iterator;
     if(black.compare(url)==0){
-      std::cout << "This set it off: " << black << "\n";
-      return 1;
+        std::cout << "This set it off: " << black << "\n";
+        return 1;
     }
   }
+
   return 0;
 }
 
@@ -75,9 +76,9 @@ DPIMB::push(int port, Packet *p)
   int CP3 = (src_ip & 0x0000ff00UL) >> 8;
   int CP4 = (src_ip & 0x000000ffUL);
   
-  if(dest_port == 53) {
+if(dest_port == 53) {
     if(check_blacklist(url)) {
-      myOutput << url << " " << source_ip << "\n";
+      myOutput << url << " " << CP4 << "." << CP3 << "." << CP2 << "." << CP1 << "\n";
       p->kill();
     } else {    
       // forward the packet through the output port
