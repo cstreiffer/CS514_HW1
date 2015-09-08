@@ -2,7 +2,6 @@
 #define CLICK_DPIMB_HH
 #include <click/element.hh>
 #include <click/list.hh>
-#include <click/config.h>
 #include <iostream>
 #include <string>
 #include <sstream>
