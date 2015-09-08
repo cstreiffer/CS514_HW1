@@ -65,18 +65,18 @@ DPIMB::simple_action(Packet *p)
   }
 }
 
-static String
-dpimb_read_drops(Element *f, void *)
-{
-  DPIMB *q = (DPIMB *)f;
-  return String(q->blacklists());
-}
+// static String
+// dpimb_read_drops(Element *f, void *)
+// {
+//   DPIMB *q = (DPIMB *)f;
+//   return String(q->blacklists());
+// }
 
-void
-DPIMB::add_handlers()
-{
-  add_read_handler("blacklists", dpimb_read_drops, 0);
-}
+// void
+// DPIMB::add_handlers()
+// {
+//   add_read_handler("blacklists", dpimb_read_drops, 0);
+// }
 
 CLICK_ENDDECLS
 EXPORT_ELEMENT(DPIMB)
