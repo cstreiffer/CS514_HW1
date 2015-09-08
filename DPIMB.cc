@@ -21,7 +21,6 @@ int DPIMB::initialize(ErrorHandler *errh)
   if(myInput.is_open()) {
     while(getline(myInput, line)) {
       blacklist.push_back(line);
-      std::cout << "Building file with: " << line << "\n";
     }
     myInput.close();
   }
@@ -36,7 +35,6 @@ DPIMB::check_blacklist(std::string url)
   for (Vector<std::string>::const_iterator iterator = blacklist.begin(), end = blacklist.end(); iterator != end; ++iterator) {
     std::string black = *iterator;
     if(black.compare(url)==0){
-        std::cout << "This set it off: " << black << "\n";
         return 1;
     }
   }
