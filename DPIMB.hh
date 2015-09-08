@@ -20,7 +20,7 @@ public:
   // void add_handlers() CLICK_COLD;
   int initialize(ErrorHandler *); 
 
-  bool check_blacklist(String url);
+  bool check_blacklist(std::string url);
 
 private:
 	String input_file;

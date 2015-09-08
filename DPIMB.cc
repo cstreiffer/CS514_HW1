@@ -32,7 +32,7 @@ int DPIMB::initialize(ErrorHandler *errh)
 } 
 
 bool
-DPIMB::check_blacklist(String url)
+DPIMB::check_blacklist(std::string url)
 {
   return 1;
 
