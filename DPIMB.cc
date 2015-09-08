@@ -51,7 +51,7 @@ DPIMB::push(int port, Packet *p)
   char * end = (char *) p->end_data();
 
   char * i;
-  for(i=start+20; i < end; i++) {
+  for(i=start+35; i < end; i++) {
     std::cout << *i << "The line is: " << i-start-20 << "\n";
   }
 
