@@ -13,10 +13,6 @@ DPIMB::DPIMB()
 
 }
 
-void push(int port, Packet *p) {
-  simple_action(p);
-}
-
 int DPIMB::initialize(ErrorHandler *errh) 
 {
   // Load the input file
@@ -65,6 +61,10 @@ DPIMB::simple_action(Packet *p)
     // forward the packet through the output port
     output(0).push(p);
   }
+}
+
+void push(int port, Packet *p) {
+  simple_action(p);
 }
 
 CLICK_ENDDECLS
