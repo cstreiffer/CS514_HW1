@@ -15,11 +15,10 @@ public:
   // const char *processing() const	{ return AGNOSTIC; }
   // const char *flow_code() const     { return "x/x"; }
   const char *processing() const { return PUSH; }
+  Packet *simple_action(Packet *);
   void push(int port, Packet *p);
   int initialize(ErrorHandler *);	
   bool check_blacklist(String url);
-  Packet *simple_action(Packet *);
-
 private:
 	String input_file;
 	String output_file;
