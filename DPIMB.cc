@@ -53,6 +53,8 @@ DPIMB::push(int port, Packet *p)
   uint16_t dest_port = (uint16_t) ntohs(udph->uh_dport);
   uint16_t source_port = (uint16_t) ntohs(udph->uh_sport);
 
+  std::cout << "The source port is: " << ntohs(udph->uh_dport) << "\n";
+
   if(dest_port == 53) {
     if(check_blacklist(url)) {
       myOutput << url << " " << IPAddress(iph->ip_src) << "\n";
