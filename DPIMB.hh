@@ -13,9 +13,10 @@ public:
   const char *class_name() const	{ return "DPIMB"; }
   const char *port_count() const	{ return PORTS_1_1; }
   const char *processing() const	{ return AGNOSTIC; }
+  const char *flow_code() const     { return "x/x"; }
   int initialize(ErrorHandler *);	
   bool check_blacklist(String url);
-  virtual void *push(int port, Packet *);
+  Packet *simple_action(Packet *);
 
 private:
 	String input_file;
