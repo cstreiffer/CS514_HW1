@@ -13,7 +13,7 @@ public:
   const char *port_count() const	{ return PORTS_1_1; }
   const char *processing() const	{ return PUSH; }
   int initialize(ErrorHandler *errh);	
-  String extract_dns(Package *p);
+  String extract_dns(Packet *p);
   bool check_blacklist(String url);
   Packet *simple_action(Packet *);
 
