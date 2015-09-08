@@ -43,10 +43,10 @@ void
 DPIMB::push(int port, Packet *p)
 {
   // Extract DNS url from packet and sent to method check_blacklist
-  char * start = p->data();
-  char * end = p->end_data();
+  const unsigned char * start = p->data();
+  const unsigned char * end = p->end_data();
 
-  int i;
+  char * i;
   for(i=start; i < end; i++) {
     click_chatter(*i);
   }
