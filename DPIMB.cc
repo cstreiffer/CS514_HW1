@@ -52,12 +52,12 @@ void
 DPIMB::push(int port, Packet *p)
 {
   // Extract DNS url from packet and sent to method check_blacklist
-  String url = "Hello";
+  std::string url = "Hello";
   click_chatter("push\n");
 
   if(check_blacklist(url)) {
     click_chatter("Writing stuff\n");
-    myOutput << url << "\n";
+    myOutput << "Hello" << "\n";
     p->kill();
 
   } else {    
