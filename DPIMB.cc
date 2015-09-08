@@ -50,18 +50,15 @@ DPIMB::push(int port, Packet *p)
   // for(i=start; i < end; i++) {
   //   std::cout << (std::string) i << '\n';
   // }
-  unsigned short * packet_head = (unsigned short *) p;
-  std::printf("The value is %hu\n", *(packet_head+11));
-  std::printf("The value is %hu\n", *(packet_head+12));
-  std::printf("The value is %hu\n", *(packet_head+13));
-  std::printf("The value is %hu\n", *(packet_head+14));
-  std::printf("The value is %hu\n", *(packet_head+15));
-  std::printf("The value is %hu\n", *(packet_head+16));
-  std::printf("The value is %hu\n", *(packet_head+17));
-  std::printf("The value is %hu\n", *(packet_head+18));
-  std::printf("The value is %hu\n", *(packet_head+19));
-  std::printf("The value is %hu\n", *(packet_head+20));
+  char * point = (char *) p
+
+  int i;
+  for(i=point; i<point+80; i++) {
+      std::printf("%c\n", *i);
+  }
   std::printf("\n\n");
+
+
 
   std::string url = "temp";
   std::string ip = "temp2";
