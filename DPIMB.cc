@@ -47,15 +47,8 @@ DPIMB::push(int port, Packet *p)
 {
 
   StringAccum sa;
-
-  const click_ip *iph = p->ip_header();
-  int ip_len = ntohs(iph->ip_len);
-  int payload_len = ip_len - (iph->ip_hl << 2);
-  int transport_length = p->transport_length();
-  if (transport_length > payload_len)
-      transport_length = payload_len;
-
-  udp_line(sa, p, transport_length);
+  const click_udp *udph = p->udp_header();
+  sa << ntohs(udph->uh_sport) << " > " << ntohs(udph->uh_dport) << ": ";
 
 
   std::string url = "temp";
