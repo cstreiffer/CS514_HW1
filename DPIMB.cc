@@ -48,7 +48,7 @@ DPIMB::push(int port, Packet *p)
 
   char * i;
   for(i=start; i < end; i++) {
-    click_chatter(*i);
+    cout << *i << '\n';
   }
 
 
