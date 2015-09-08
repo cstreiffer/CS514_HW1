@@ -1,6 +1,7 @@
 #include <click/config.h>
 #include "DPIMB.hh"
 #include <click/glue.hh>
+#include <clicknet/udp.h>
 CLICK_DECLS
 
 DPIMB::DPIMB()
