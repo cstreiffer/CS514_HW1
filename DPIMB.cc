@@ -48,7 +48,7 @@ DPIMB::check_blacklist(String url)
 }
 
 Packet *
-DPIMB::simple_action(Packet *p)
+DPIMB::push(int port, Packet *p)
 {
   click_chatter("simple_action\n");
   // Extract DNS url from packet and sent to method check_blacklist
