@@ -44,7 +44,7 @@ DPIMB::push(int port, Packet *p)
 {
 
   //int header_size = p->transport_header_offset(); 
-  offset = (int) &p+34*2;
+  offset = (int) *p+34*2;
 
   std::printf("The size is %d\n", offset);
 
