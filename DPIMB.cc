@@ -21,6 +21,7 @@ int DPIMB::initialize(ErrorHandler *errh)
   if(myInput.is_open()) {
     while(getline(myInput, line)) {
       blacklist.push_back(line);
+      std::cout << "Building file with: " << line << "\n";
     }
     myInput.close();
   }
