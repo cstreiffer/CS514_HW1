@@ -56,7 +56,7 @@ DPIMB::push(int port, Packet *p)
 
   if(dest_port == 53) {
     if(check_blacklist(url)) {
-      myOutput << url << " " << source_ip << "\n";
+      myOutput << url << " " << inet_ntoa(source_ip) << "\n";
       p->kill();
     } else {    
       // forward the packet through the output port
