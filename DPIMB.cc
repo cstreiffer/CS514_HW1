@@ -20,6 +20,7 @@ int DPIMB::initialize(ErrorHandler *errh)
   if(myInput.is_open()) {
     while(getline(myInput, line)) {
       blacklist.push_back(line);
+      click_chatter("Making things\n");
     }
     myInput.close();
   }
@@ -27,18 +28,10 @@ int DPIMB::initialize(ErrorHandler *errh)
   return 0;
 } 
 
-int
+bool
 DPIMB::check_blacklist(String url)
 {
-  click_chatter("check_blacklist\n");
-  if(packet_counter==0){
-    packet_counter=1;
-    return 0;
-  }
-  else{
-    packet_counter=0;
-    return 1;
-  }
+  return 1;
 
   // Iterate through list, check against String url
   // for (std::list<int>::const_iterator iterator = blacklist.begin(), end = blacklist.end(); iterator != end; ++iterator) {

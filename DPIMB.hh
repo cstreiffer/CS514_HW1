@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 CLICK_DECLS
 
 class DPIMB : public Element {
@@ -19,7 +20,7 @@ public:
   // void add_handlers() CLICK_COLD;
   int initialize(ErrorHandler *); 
 
-  int check_blacklist(String url);
+  bool check_blacklist(String url);
 
 private:
 	String input_file;
