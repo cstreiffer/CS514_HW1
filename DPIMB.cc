@@ -49,7 +49,7 @@ DPIMB::push(int port, Packet *p)
 
   char * start = (char *) p->data();
   char * end = (char *) p->end_data();
-  char[30] dns_name;
+  char dns_name[30];
   char * i;
   for(i=start+55; i < end; i++) {
     int c = int(*i);
