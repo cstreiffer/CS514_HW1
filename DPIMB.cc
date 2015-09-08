@@ -1,5 +1,6 @@
 #include <click/config.h>
 #include "DPIMB.hh"
+#include <click/glue.hh>
 CLICK_DECLS
 
 DPIMB::DPIMB()
@@ -22,7 +23,7 @@ int DPIMB::initialize(ErrorHandler *errh)
   return 0;
 } 
 
-bool
+int
 DPIMB::check_blacklist(String url)
 {
   click_chatter("check_blacklist\n");
@@ -55,16 +56,26 @@ DPIMB::simple_action(Packet *p)
   String url = "Hello";
 
   if(check_blacklist(url)) {
-    p->kill();
     myOutput << url << "\n";
+    p->kill();
+    return 0;
   } else {
     // forward the packet through the output port
-    output(0).push(p);
+    return p;
   }
 }
 
-void push(int port, Packet *p) {
-  simple_action(p);
+static String
+dpimb_read_drops(Element *f, void *)
+{
+  DPIMB *q = (DPIMB *)f;
+  return String(q->blacklists());
+}
+
+void
+DropBroadcasts::add_handlers()
+{
+  add_read_handler("blacklists", dpimb_read_drops, 0);
 }
 
 CLICK_ENDDECLS

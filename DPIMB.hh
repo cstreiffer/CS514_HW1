@@ -8,17 +8,17 @@ CLICK_DECLS
 class DPIMB : public Element {
 public:
 
-  DPIMB();
+  DPIMB() CLICK_COLD;
 
   const char *class_name() const	{ return "DPIMB"; }
   const char *port_count() const	{ return PORTS_1_1; }
-  // const char *processing() const	{ return AGNOSTIC; }
-  // const char *flow_code() const     { return "x/x"; }
-  const char *processing() const { return PUSH; }
+  const char *processing() const	{ return AGNOSTIC; }
+  void add_handlers() CLICK_COLD;
+  int initialize(ErrorHandler *); 
+
   Packet *simple_action(Packet *);
-  void push(int port, Packet *p);
-  int initialize(ErrorHandler *);	
-  bool check_blacklist(String url);
+  int check_blacklist(String url);
+  
 private:
 	String input_file;
 	String output_file;
