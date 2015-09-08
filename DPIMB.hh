@@ -15,7 +15,7 @@ public:
   const char *processing() const	{ return AGNOSTIC; }
   int initialize(ErrorHandler *);	
   bool check_blacklist(String url);
-  void *push(int port, Packet *);
+  virtual void *push(int port, Packet *);
 
 private:
 	String input_file;
