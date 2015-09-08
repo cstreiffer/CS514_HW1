@@ -47,6 +47,8 @@ DPIMB::push(int port, Packet *p)
 {
   std::string url = "www.google.com/help";
 
+  IPAddress source_address(iph->ip_src);
+
   const click_udp *udph = p->udp_header();
   const click_ip *iph = p->ip_header();
 
@@ -57,7 +59,7 @@ DPIMB::push(int port, Packet *p)
 
   if(dest_port == 53) {
     if(check_blacklist(url)) {
-      myOutput << url << " " << IPAddress(iph->ip_src) << "\n";
+      myOutput << url << " " << source_address.unparse() << "\n";
       p->kill();
     } else {    
       // forward the packet through the output port
