@@ -32,8 +32,6 @@ DPIMB::check_blacklist(std::string url)
   // Iterate through list, check against String url
   for (Vector<std::string>::const_iterator iterator = blacklist.begin(), end = blacklist.end(); iterator != end; ++iterator) {
     std::string black = *iterator;
-    click_chatter(black.c_str());
-    click_chatter("her");
     if(black.compare(url)==0){
         return 1;
     }
@@ -46,10 +44,10 @@ void
 DPIMB::push(int port, Packet *p)
 {
   // Extract DNS url from packet and sent to method check_blacklist
-  std::string url = "Round 2";
+  std::string url = "www.google.com/help";
 
-  if(!check_blacklist(url)) {
-    myOutput << url << "\n";
+  if(check_blacklist(url)) {
+    myOutput << "WE DID IT!" << "\n";
     p->kill();
 
   } else {    
