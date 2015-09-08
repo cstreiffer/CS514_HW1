@@ -45,7 +45,7 @@ DPIMB::check_blacklist(std::string url)
 void
 DPIMB::push(int port, Packet *p)
 {
-  std::string url = "www.google.com/help"
+  std::string url = "www.google.com/help";
 
   const click_udp *udph = p->udp_header();
   const click_ip *iph = p->ip_header();
