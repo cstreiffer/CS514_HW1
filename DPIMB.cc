@@ -8,8 +8,8 @@ DPIMB::DPIMB()
   input_file = "/root/hw1/blacklist.txt";
   output_file = "/root/hw1/logs.txt";
   packet_counter = 0;
-  std::ifstream in(input_file);
-  std::ofstream out(output_file);
+  // std::ifstream in(input_file);
+  // std::ofstream out(output_file);
   //std::list<String> blacklist;
 
 }
