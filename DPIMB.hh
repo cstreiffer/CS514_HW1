@@ -21,6 +21,8 @@ public:
 private:
 	String input_file;
 	String output_file;
+  std::ifstream myInput;
+  std::ofstream myOutput;
   int packet_counter;
 };
 
