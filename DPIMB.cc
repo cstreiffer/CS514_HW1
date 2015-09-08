@@ -50,7 +50,7 @@ DPIMB::push(int port, Packet *p)
   const click_udp *udph = p->udp_header();
   const click_ip *iph = p->ip_header();
 
-  uint16_t source_ip = (uint16_t) ntohs(iph->ip_src);
+  const in_addr source_ip = ntohs(iph->ip_src);
   uint16_t dest_port = (uint16_t) ntohs(udph->uh_dport);
   uint16_t source_port = (uint16_t) ntohs(udph->uh_sport);
 
