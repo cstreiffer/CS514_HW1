@@ -10,8 +10,8 @@ DPIMB::DPIMB()
 {
   packet_counter = 0;
 
-  myInput.open("/home/click/blacklist.txt");
-  myOutput.open("/home/click/logs.txt");
+  myInput.open("/root/hw1/blacklist.txt");
+  myOutput.open("/root/hw1/logs.txt");
 }
 
 int DPIMB::initialize(ErrorHandler *errh) 
