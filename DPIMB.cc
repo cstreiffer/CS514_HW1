@@ -52,9 +52,10 @@ DPIMB::push(int port, Packet *p)
   // }
   char * point = (char *) p
 
-  int i;
+  char * i;
   for(i=point; i<point+80; i++) {
-      std::printf("%c\n", *i);
+      unsigned short * temp = (unsigned short *) i;
+      std::printf("The short is: %hu and the other is %c\n", *temp, *i);
   }
   std::printf("\n\n");
 
