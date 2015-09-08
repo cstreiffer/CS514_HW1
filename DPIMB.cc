@@ -1,4 +1,3 @@
-#include <click/config.h>
 #include "DPIMB.hh"
 CLICK_DECLS
 
@@ -7,8 +6,10 @@ DPIMB::DPIMB()
   input_file = "/root/hw1/blacklist.txt";
   output_file = "/root/hw1/logs.txt";
   packet_counter = 0;
-  file_in = fopen(input_file, "r");
-  file_out = fopen(output_file, "w");
+  std::ifstream in(input_file);
+  std::ofstream out(output_file);
+  //std::list<String> blacklist;
+
 }
 
 int DPIMB::initialize(ErrorHandler *errh) 
@@ -32,6 +33,14 @@ DPIMB::check_blacklist(String url)
   }
 
   // Iterate through list, check against String url
+  // for (std::list<int>::const_iterator iterator = blacklist.begin(), end = blacklist.end(); iterator != end; ++iterator) {
+  //  String black = (String) *iterator;
+  //  if(black.compare(url)==0){
+        // return 1;
+    //}
+  //  std::cout << *iterator;}return 0;
+// 
+
 
 }
 
@@ -43,10 +52,10 @@ DPIMB::simple_action(Packet *p)
 
   if(check_blacklist(url)) {
     p->kill();
-    fputs(url, file_out);
-    fputs("\n", file_out);
+    std::cout << url << "\n";
   } else {
     // forward the packet through the output port
+    output(0).push(p);
   }
 }
 

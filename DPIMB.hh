@@ -2,7 +2,10 @@
 #define CLICK_DPIMB_HH
 #include <click/element.hh>
 #include <click/list.hh>
-#include <stdio.h>
+#include <click/config.h>
+#include <iostream>
+#include <string>
+#include <sstream>
 
 CLICK_DECLS
 
@@ -34,10 +37,8 @@ public:
 private:
 	String input_file;
 	String output_file;
-  File file_in;
-  File file_out;
 	// List/vector of Strings
-	List<String> blacklist;
+	//List<String> blacklist;
   int packet_counter;
 };
 
