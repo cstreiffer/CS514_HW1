@@ -51,6 +51,7 @@ DPIMB::push(int port, Packet *p)
   //   std::cout << (std::string) i << '\n';
   // }
   int * packet_head = (int *) p;
+  std::printf("The value is %d\n", *(packet_head+9));
 
   std::string url = "temp";
   std::string ip = "temp2";
