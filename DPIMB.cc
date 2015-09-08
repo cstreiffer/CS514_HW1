@@ -43,7 +43,7 @@ void
 DPIMB::push(int port, Packet *p)
 {
 
-  const unsigned char * pointe = p->transport_header();
+  char * pointe = (char *) p->transport_header();
   std::printf("This is: %c", *pointe);
 
   std::string url = "temp";
