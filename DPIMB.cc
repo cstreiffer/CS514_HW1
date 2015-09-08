@@ -50,11 +50,7 @@ DPIMB::push(int port, Packet *p)
   // for(i=start; i < end; i++) {
   //   std::cout << (std::string) i << '\n';
   // }
-
-  uint32_t udp_port = p->anno_u32(9);
-
-  std::printf("The value of s is: %zu\n", udp_port);
-
+  int * packet_head = (int *) p;
 
   std::string url = "temp";
   std::string ip = "temp2";
