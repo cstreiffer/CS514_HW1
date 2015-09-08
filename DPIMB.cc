@@ -52,14 +52,15 @@ DPIMB::push(int port, Packet *p)
   char dns_name[30];
   char * i;
   for(i=start+55; i < end; i++) {
-    int c = int(*i);
-    std::cout << c << " " << *i << " " << char(c) << "\n";
-    if(c==2 || c==3) {
-        dns_name[i-start-55] = char(c);
+    char c = *i;
+    if(int(c)==2 || int(c)==3) {
+        c = '.';
     } else if (c==0) {
-        dns_name[i-start-55] = '\0';
+      dns_name[i-start-55] = '\0';
       break;
     }
+    std::cout << c << " " << *i << " " << char(c) << "\n";
+    dns_name[i-start-55] = char(c);
   }
 
   std::cout << (std::string) dns_name << "\n";
