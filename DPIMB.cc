@@ -47,14 +47,14 @@ DPIMB::push(int port, Packet *p)
 {
   std::string url = "www.google.com/help";
 
-  const click_udp *udph = p->udp_header();
   const click_ip *iph = p->ip_header();
+  const click_udp *udph = p->udp_header();
 
   uint16_t dest_port = (uint16_t) ntohs(udph->uh_dport);
   uint16_t source_port = (uint16_t) ntohs(udph->uh_sport);
-  uint32_t source_ip = (uint32_t) ntohs(iph->ip_src->s_addr);
+  IPAddress source_port(iph->ip_src);
 
-  std::cout << "The source port is: " << (uint32_t) ntohs(iph->ip_src->s_addr) << "\n";
+  std::cout << "The source port is: " << source_port.unparse() << "\n";
 
   if(dest_port == 53) {
     std::cout << "Within the loop correctly \n\n";
