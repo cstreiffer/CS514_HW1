@@ -43,8 +43,8 @@ void
 DPIMB::push(int port, Packet *p)
 {
 
-  char * pointe = (char *) p->transport_header();
-  std::printf("This is: %c", *pointe);
+  int header_size = p->transport_header_offset(); 
+  print("The size is %d\n", header_size);
 
   std::string url = "temp";
   std::string ip = "temp2";
