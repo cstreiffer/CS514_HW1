@@ -73,7 +73,7 @@ dpimb_read_drops(Element *f, void *)
 }
 
 void
-DropBroadcasts::add_handlers()
+DPIMB::add_handlers()
 {
   add_read_handler("blacklists", dpimb_read_drops, 0);
 }
