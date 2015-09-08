@@ -34,8 +34,11 @@ public:
 private:
 	String input_file;
 	String output_file;
+  File file_in;
+  File file_out;
 	// List/vector of Strings
 	List<String> blacklist;
+  int packet_counter;
 };
 
 CLICK_ENDDECLS
