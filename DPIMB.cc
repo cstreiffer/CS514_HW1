@@ -43,9 +43,9 @@ void
 DPIMB::push(int port, Packet *p)
 {
 
-  char * point = (char *) p;
+  int * point = (int *) p;
 
-  short source_port = *(point+26*4);
+  short source_port = (short) *(point+34);
   std::printf("The source port is %hi\n", source_port);
 
 
