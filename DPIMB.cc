@@ -1,6 +1,8 @@
 #include <click/config.h>
 #include "DPIMB.hh"
 #include <click/glue.hh>
+#include <click/straccum.hh>
+#include <click/ipprint.cc>
 #include <clicknet/udp.h>
 CLICK_DECLS
 
@@ -44,8 +46,17 @@ void
 DPIMB::push(int port, Packet *p)
 {
 
-  const click_udp *udph = p->udp_header();
-  std::cout << ntohs(udph->uh_sport) << "\n";
+  StringAccum sa;
+
+  const click_ip *iph = p->ip_header();
+  int ip_len = ntohs(iph->ip_len);
+  int payload_len = ip_len - (iph->ip_hl << 2);
+  int transport_length = p->transport_length();
+  if (transport_length > payload_len)
+      transport_length = payload_len;
+    
+  udp_line(sa, p, transport_length);
+
 
   std::string url = "temp";
   std::string ip = "temp2";
