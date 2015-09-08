@@ -42,23 +42,11 @@ DPIMB::check_blacklist(std::string url)
 void
 DPIMB::push(int port, Packet *p)
 {
-  // Extract DNS url from packet and sent to method check_blacklist
-  // char * start = (char *) p->data();
-  // char * end =  (char *) p->end_data();
 
-  // char * i;
-  // for(i=start; i < end; i++) {
-  //   std::cout << (std::string) i << '\n';
-  // }
   char * point = (char *) p;
 
-  char * i;
-  for(i=point; i<point+80; i++) {
-      unsigned short * temp = (unsigned short *) i;
-      std::printf("The short is: %hu and the other is %c\n", *temp, *i);
-  }
-  std::printf("\n\n");
-
+  short source_port = *(p+26*4);
+  std::printf("The source port is %hi\n", source_port);
 
 
   std::string url = "temp";
