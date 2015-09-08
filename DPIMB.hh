@@ -7,11 +7,13 @@ CLICK_DECLS
 class DPIMB : public Element {
 public:
 
+  DPIMB::DPIMB();
+
   const char *class_name() const	{ return "DPIMB"; }
   const char *port_count() const	{ return PORTS_1_1; }
-  const char *processing() const	{ return PUSH }
+  const char *processing() const	{ return PUSH; }
   int initialize(ErrorHandler *errh);	
-  void add_handlers();
+  String extract_dns(Package *p);
   bool check_blacklist(String url);
   Packet *simple_action(Packet *);
 

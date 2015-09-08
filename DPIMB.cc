@@ -18,7 +18,7 @@ int DPIMB::initialize(ErrorHandler *errh)
   // Load the input file
 
   // Create Vector/List of Strings
-
+  return 0;
 } 
 
 bool
@@ -59,6 +59,11 @@ DPIMB::simple_action(Packet *p)
     output(0).push(p);
   }
 }
+
+String extract_dns(Package *p) {
+  return null;
+}
+
 
 CLICK_ENDDECLS
 EXPORT_ELEMENT(DPIMB)
