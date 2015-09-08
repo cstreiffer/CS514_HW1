@@ -2,6 +2,7 @@
 #define CLICK_DPIMB_HH
 #include <click/element.hh>
 #include <iostream>
+#include <fstream>
 CLICK_DECLS
 
 class DPIMB : public Element {
