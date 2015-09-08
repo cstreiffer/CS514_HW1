@@ -4,12 +4,10 @@ CLICK_DECLS
 
 DPIMB::DPIMB()
 {
-  input_file = "/root/hw1/blacklist.txt";
-  output_file = "/root/hw1/logs.txt";
   packet_counter = 0;
 
-  myInput.open(input_file);
-  myOutput.open(output_file);
+  std::myInput.open("/root/hw1/blacklist.txt");
+  std::myOutput.open("/root/hw1/logs.txt");
   //std::list<String> blacklist;
 
 }
