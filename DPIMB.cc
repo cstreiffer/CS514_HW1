@@ -10,8 +10,6 @@ DPIMB::DPIMB()
 
   myInput.open("/root/hw1/blacklist.txt");
   myOutput.open("/root/hw1/logs.txt");
-  //std::list<String> blacklist;
-
 }
 
 int DPIMB::initialize(ErrorHandler *errh) 

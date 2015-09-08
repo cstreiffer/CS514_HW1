@@ -1,7 +1,7 @@
 #ifndef CLICK_DPIMB_HH
 #define CLICK_DPIMB_HH
 #include <click/element.hh>
-#include <click/list.hh>
+#include <click/vector.hh>
 #include <iostream>
 #include <fstream>
 CLICK_DECLS
@@ -26,7 +26,7 @@ private:
   std::ifstream myInput;
   std::ofstream myOutput;
   int packet_counter;
-  list<String> blacklist;
+  Vector<String> blacklist;
 };
 
 CLICK_ENDDECLS
