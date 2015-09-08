@@ -60,7 +60,7 @@ DPIMB::simple_action(Packet *p)
   }
 }
 
-String extract_dns(Package *p) {
+String extract_dns(Packet *p) {
   return null;
 }
 
