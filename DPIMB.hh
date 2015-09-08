@@ -25,6 +25,7 @@ private:
   std::ifstream myInput;
   std::ofstream myOutput;
   int packet_counter;
+  std::list<String> blacklist;
 };
 
 CLICK_ENDDECLS
