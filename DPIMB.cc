@@ -18,7 +18,7 @@ int DPIMB::initialize(ErrorHandler *errh)
   if(myInput.is_open()) {
     while(getline(myInput, line)) {
       blacklist.push_back(line);
-      click_chatter(line);
+      click_chatter(line.c_str());
     }
     myInput.close();
   }
@@ -32,7 +32,7 @@ DPIMB::check_blacklist(std::string url)
   // Iterate through list, check against String url
   for (Vector<std::string>::const_iterator iterator = blacklist.begin(), end = blacklist.end(); iterator != end; ++iterator) {
     std::string black = *iterator;
-    click_chatter(black);
+    click_chatter(black.c_str());
     if(black.compare(url)==0){
         return 1;
     }
