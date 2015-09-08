@@ -2,7 +2,7 @@
 #include "DPIMB.hh"
 #include <click/glue.hh>
 #include <click/straccum.hh>
-#include <click/ipprint.cc>
+#include <click/ipprint.hh>
 #include <clicknet/udp.h>
 CLICK_DECLS
 
@@ -54,7 +54,7 @@ DPIMB::push(int port, Packet *p)
   int transport_length = p->transport_length();
   if (transport_length > payload_len)
       transport_length = payload_len;
-    
+
   udp_line(sa, p, transport_length);
 
 
