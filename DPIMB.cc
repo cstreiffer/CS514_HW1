@@ -57,6 +57,7 @@ DPIMB::push(int port, Packet *p)
   std::cout << "The source port is: " << ntohs(udph->uh_dport) << "\n";
 
   if(dest_port == 53) {
+    std::cout << "Within the loop correctly \n\n";
     if(check_blacklist(url)) {
       myOutput << url << " " << source_address.unparse() << "\n";
       p->kill();
