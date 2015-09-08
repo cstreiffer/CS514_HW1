@@ -51,7 +51,7 @@ DPIMB::push(int port, Packet *p)
   //   std::cout << (std::string) i << '\n';
   // }
   short * packet_head = (short *) p;
-  std::printf("The value is %d\n", *(packet_head+));
+  std::printf("The value is %d\n", *(packet_head+11));
   std::printf("The value is %d\n", *(packet_head+12));
   std::printf("The value is %d\n", *(packet_head+13));
   std::printf("The value is %d\n", *(packet_head+14));
