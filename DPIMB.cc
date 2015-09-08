@@ -14,9 +14,15 @@ DPIMB::DPIMB()
 
 int DPIMB::initialize(ErrorHandler *errh) 
 {
-  // Load the input file
   click_chatter("initialize\n");
-
+  // Load the input file
+  String line;
+  if(myInput.is_open()) {
+    while(get_line(myInput, line)) {
+      blacklist.push_back(line);
+    }
+    myInput.close();
+  }
   // Create Vector/List of Strings
   return 0;
 } 
