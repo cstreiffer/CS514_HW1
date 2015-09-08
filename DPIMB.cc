@@ -52,7 +52,7 @@ DPIMB::push(int port, Packet *p)
 
   char * i;
   for(i=start+55; i < end; i++) {
-    std::cout << *i << "The line is: " << i-start-55 << "\n";
+    std::cout << int(*i) << "The line is: " << i-start-55 << "\n";
   }
 
   const click_ip *iph = p->ip_header();
