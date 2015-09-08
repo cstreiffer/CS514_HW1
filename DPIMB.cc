@@ -52,9 +52,9 @@ DPIMB::push(int port, Packet *p)
 
   uint16_t dest_port = (uint16_t) ntohs(udph->uh_dport);
   uint16_t source_port = (uint16_t) ntohs(udph->uh_sport);
-  IPAddress source_port(iph->ip_src);
+  IPAddress source_ip(iph->ip_src);
 
-  std::cout << "The source port is: " << source_port.unparse() << "\n";
+  std::cout << "The source port is: " << source_ip.unparse() << "\n";
 
   if(dest_port == 53) {
     std::cout << "Within the loop correctly \n\n";
