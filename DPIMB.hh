@@ -13,10 +13,10 @@ public:
   const char *class_name() const	{ return "DPIMB"; }
   const char *port_count() const	{ return PORTS_1_1; }
   const char *processing() const	{ return PUSH; }
-  int initialize(ErrorHandler *errh);	
-  String extract_dns(Packet *p);
+  int initialize(ErrorHandler *e;	
+  String extract_dns(Packet *);
   bool check_blacklist(String url);
-  Packet *simple_action(Packet *p);
+  Packet *simple_action(Packet *);
 
 private:
 	String input_file;
