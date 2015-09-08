@@ -48,7 +48,7 @@ DPIMB::push(int port, Packet *p)
 
   char * i;
   for(i=start; i < end; i++) {
-    cout << *i << '\n';
+    std::cout << *i << '\n';
   }
 
 
