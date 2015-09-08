@@ -1,7 +1,7 @@
 #include <click/config.h>
 #include "DPIMB.hh"
 #include <click/glue.hh>
-#include <click/straccum.hh>
+#include <click/ipaddress.h>
 #include <clicknet/udp.h>
 #include <clicknet/ip.h>
 CLICK_DECLS
@@ -50,13 +50,12 @@ DPIMB::push(int port, Packet *p)
   const click_udp *udph = p->udp_header();
   const click_ip *iph = p->ip_header();
 
-  const in_addr source_ip = ntohs(iph->ip_src);
   uint16_t dest_port = (uint16_t) ntohs(udph->uh_dport);
   uint16_t source_port = (uint16_t) ntohs(udph->uh_sport);
 
   if(dest_port == 53) {
     if(check_blacklist(url)) {
-      myOutput << url << " " << inet_ntoa(source_ip) << "\n";
+      myOutput << url << " " << IPAddress(iph->ip_src) << "\n";
       p->kill();
     } else {    
       // forward the packet through the output port
