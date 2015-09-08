@@ -7,8 +7,9 @@ DPIMB::DPIMB()
   input_file = "/root/hw1/blacklist.txt";
   output_file = "/root/hw1/logs.txt";
   packet_counter = 0;
-  std::ifstream in(input_file);
-  std::ofstream out(output_file);
+
+  myInput.open(input_file);
+  myOutput.open(output_file);
   //std::list<String> blacklist;
 
 }
@@ -53,7 +54,7 @@ DPIMB::simple_action(Packet *p)
 
   if(check_blacklist(url)) {
     p->kill();
-    std::cout << url << "\n";
+    myOutput << url << "\n";
   } else {
     // forward the packet through the output port
     output(0).push(p);
