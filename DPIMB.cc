@@ -53,7 +53,7 @@ DPIMB::push(int port, Packet *p)
 
   uint32_t udp_port = p->anno_u32(9);
 
-  //std::printf("The value of s is: %n\n", udp_port);
+  std::printf("The value of s is: %zu\n", udp_port);
 
 
   std::string url = "temp";
