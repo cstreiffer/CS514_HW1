@@ -18,7 +18,7 @@ int DPIMB::initialize(ErrorHandler *errh)
   // Load the input file
   String line;
   if(myInput.is_open()) {
-    while(get_line(myInput, line)) {
+    while(getline(myInput, line)) {
       blacklist.push_back(line);
     }
     myInput.close();
