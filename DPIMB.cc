@@ -1,7 +1,7 @@
 #include <click/config.h>
 #include "DPIMB.hh"
 #include <click/glue.hh>
-#include <click/ipaddress.h>
+#include <click/ipaddress.hh>
 #include <clicknet/udp.h>
 #include <clicknet/ip.h>
 CLICK_DECLS
