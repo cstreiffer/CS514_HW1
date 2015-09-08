@@ -2,7 +2,6 @@
 #include "DPIMB.hh"
 #include <click/glue.hh>
 #include <click/straccum.hh>
-#include <click/ipprint.hh>
 #include <clicknet/udp.h>
 CLICK_DECLS
 
