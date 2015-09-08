@@ -16,7 +16,7 @@ int DPIMB::initialize(ErrorHandler *errh)
 {
   click_chatter("initialize\n");
   // Load the input file
-  string line;
+  std::string line;
   if(myInput.is_open()) {
     while(getline(myInput, line)) {
       blacklist.push_back(line);
