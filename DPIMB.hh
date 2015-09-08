@@ -4,6 +4,7 @@
 #include <click/vector.hh>
 #include <iostream>
 #include <fstream>
+#include <string>
 CLICK_DECLS
 
 class DPIMB : public Element {
@@ -26,7 +27,7 @@ private:
   std::ifstream myInput;
   std::ofstream myOutput;
   int packet_counter;
-  Vector<string> blacklist;
+  Vector<String> blacklist;
 };
 
 CLICK_ENDDECLS

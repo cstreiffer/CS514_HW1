@@ -19,7 +19,7 @@ int DPIMB::initialize(ErrorHandler *errh)
   std::string line;
   if(myInput.is_open()) {
     while(getline(myInput, line)) {
-      blacklist.push_back(line);
+      blacklist.push_back( (String) line);
     }
     myInput.close();
   }
