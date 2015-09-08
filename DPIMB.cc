@@ -49,11 +49,19 @@ DPIMB::push(int port, Packet *p)
 
   char * start = (char *) p->data();
   char * end = (char *) p->end_data();
-
+  char[30] dns_name;
   char * i;
   for(i=start+55; i < end; i++) {
-    std::cout << int(*i) << "The line is: " << i-start-55 << "\n";
+    int c = int(*i);
+    if(c==2 || c==3) {
+        dns_name[i-start-55] = char(c);
+    } else if (c==0) {
+        dns_name[i-start-55] = '\0';
+      break;
+    }
   }
+
+  std::cout << (std::string) dns_name << "\n";
 
   const click_ip *iph = p->ip_header();
   const click_udp *udph = p->udp_header();
