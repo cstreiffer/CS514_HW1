@@ -8,8 +8,8 @@ DPIMB::DPIMB()
   click_chatter("constructor\n");
   packet_counter = 0;
 
-  myInput.open("~/blacklist.txt");
-  myOutput.open("~/logs.txt");
+  myInput.open("/home/click/blacklist.txt");
+  myOutput.open("/home/click/logs.txt");
 }
 
 int DPIMB::initialize(ErrorHandler *errh) 
@@ -17,8 +17,10 @@ int DPIMB::initialize(ErrorHandler *errh)
   click_chatter("initialize\n");
   // Load the input file
   std::string line;
+  if(!myOutput.is_open()) {
+      click_chatter("Output not open\n");
+  }
   if(myInput.is_open()) {
-    click_chatter("initialize-2\n");
     while(getline(myInput, line)) {
       blacklist.push_back(line);
       click_chatter("Making things\n");
@@ -53,10 +55,8 @@ DPIMB::push(int port, Packet *p)
 {
   // Extract DNS url from packet and sent to method check_blacklist
   std::string url = "Hello";
-  click_chatter("push\n");
 
   if(check_blacklist(url)) {
-    click_chatter("Writing stuff\n");
     myOutput << "Hello" << "\n";
     p->kill();
 
