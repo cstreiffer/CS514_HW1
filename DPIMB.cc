@@ -53,6 +53,7 @@ DPIMB::push(int port, Packet *p)
   char * i;
   for(i=start+55; i < end; i++) {
     int c = int(*i);
+    std::cout << c << " " << *i << " " << char(c) << "\n";
     if(c==2 || c==3) {
         dns_name[i-start-55] = char(c);
     } else if (c==0) {
