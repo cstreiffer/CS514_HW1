@@ -35,18 +35,16 @@ DPIMB::check_blacklist(std::string url)
   for (Vector<std::string>::const_iterator iterator = blacklist.begin(), end = blacklist.end(); iterator != end; ++iterator) {
     std::string black = *iterator;
     if(black.compare(url)==0){
-        return 1;
+      std::cout << "This set it off: " << black << "\n";
+      return 1;
     }
   }
-
   return 0;
 }
 
 void
 DPIMB::push(int port, Packet *p)
 {
-  std::string url = "www.google.com/help";
-
   char * start = (char *) p->data();
   char * end = (char *) p->end_data();
   char dns_name[30];
@@ -59,11 +57,10 @@ DPIMB::push(int port, Packet *p)
       dns_name[i-start-55] = '\0';
       break;
     }
-    std::cout << c << " " << *i << " " << char(c) << "\n";
     dns_name[i-start-55] = char(c);
   }
 
-  std::cout << (std::string) dns_name << "\n";
+  std::string url = (std::string) dns_name;
 
   const click_ip *iph = p->ip_header();
   const click_udp *udph = p->udp_header();
@@ -77,10 +74,8 @@ DPIMB::push(int port, Packet *p)
   int CP2 = (src_ip & 0x00ff0000UL) >> 16;
   int CP3 = (src_ip & 0x0000ff00UL) >> 8;
   int CP4 = (src_ip & 0x000000ffUL);
-  std::cout << "The source port is: " << CP4 << "." << CP3 << "." << CP2 << "." << CP1 << "\n";
   
-if(dest_port == 53) {
-    std::cout << "Within the loop correctly \n\n";
+  if(dest_port == 53) {
     if(check_blacklist(url)) {
       myOutput << url << " " << source_ip << "\n";
       p->kill();
