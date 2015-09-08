@@ -8,8 +8,8 @@ DPIMB::DPIMB()
   click_chatter("constructor\n");
   packet_counter = 0;
 
-  myInput.open("/root/hw1/blacklist.txt");
-  myOutput.open("/root/hw1/logs.txt");
+  myInput.open("~/blacklist.txt");
+  myOutput.open("~/logs.txt");
 }
 
 int DPIMB::initialize(ErrorHandler *errh) 
@@ -18,6 +18,7 @@ int DPIMB::initialize(ErrorHandler *errh)
   // Load the input file
   std::string line;
   if(myInput.is_open()) {
+    click_chatter("initialize-2\n");
     while(getline(myInput, line)) {
       blacklist.push_back(line);
       click_chatter("Making things\n");
