@@ -16,7 +16,7 @@ public:
   int initialize(ErrorHandler *errh);	
   String extract_dns(Packet *p);
   bool check_blacklist(String url);
-  Packet *simple_action(Packet *);
+  Packet *simple_action(Packet *p);
 
 private:
 	String input_file;
