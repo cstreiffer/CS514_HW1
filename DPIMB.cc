@@ -51,7 +51,7 @@ DPIMB::push(int port, Packet *p)
   //   std::cout << (std::string) i << '\n';
   // }
 
-  int * udp_port = (int *) p->udp_header();
+  const click_udp * udp_port = p->udp_header();
   std::cout << *udp_port << '\n';
 
 
